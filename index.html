@@ -1,151 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>My Portfolio</title>
-<style>
-body
-{
-background-image:url("https://images.pexels.com/photos/2088205/pexels-photo-2088205.jpeg");
-background-size:cover;
-background-repeat:no-repeat;
-background-position:center;
-margin:0;
-padding:20px;
-color: black;
-text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-h1
-{color: white;
-  background-color:#89CFF0;
-  font-family: 'Playfair Display', serif;;
-font-size: 5rem;
-font-weight: bold;
-font-style: italic;
-text-align: center;
-padding: 5rem 5rem; 
-}
-h2
-{font-family: Georgia;
-font-size: 3rem;
-font-style: italic;
-text-align: center;
-padding: 1rem 5rem
-}
-h3
-{
-font-family: Georgia;
-font-size: 0.75rem;
-font-style: italic;
-}
-
-p
-{
-line-height: 3;
-font-family: Georgia;
-font-size: 0.75rem;
-font-style: italic;
-}
-nav a {
-  color: white;
-  padding: 1rem 1.5rem; 
-  display: inline-block;
-  transition: background 0.3s ease;
-}
-
-nav a:hover {
-  background-color: #1a252f;
-  border-radius: 5px;
-}
- footer {
-  background-color: #000; /* Black footer */
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  width: 100%;
-  margin: 0;
-}
-     header {
-      background-color: #008080; 
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  width: 100%;
-  margin: 0;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Portfolio</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-</style>
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav li {
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      font-weight: 600;
+    }
+
+    /* Hero section */
+    .hero {
+      display: grid;
+      place-items: center;
+      height: 80vh;
+      background: #0077cc;
+      color: white;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      background: white;
+      border: none;
+      color: #0077cc;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    .hero button:hover {
+      background: #e0e0e0;
+    }
+
+    /* About Section */
+    .about {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 10px;
+      max-width: 400px;
+      justify-self: center;
+    }
+
+    /* Projects Section */
+    .projects {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .projects h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .project-grid {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .project-card {
+      background: #f5f5f5;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      margin-bottom: 0.5rem;
+      color: #0077cc;
+    }
+
+    /* Skills Section */
+    .skills {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .skills h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .skill {
+      background: #0077cc;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    .contact {
+      max-width: 600px;
+      margin: 3rem auto 5rem;
+      padding: 0 1rem;
+    }
+
+    .contact h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    button.submit-btn {
+      background: #0077cc;
+      color: white;
+      border: none;
+      padding: 1rem;
+      font-size: 1.1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button.submit-btn:hover {
+      background: #005fa3;
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .about {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .about img {
+        margin: 0 auto;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-<header>
-<nav>
-    <a href="#contact">Contact</a>
-    <a href="#objective">About Me</a>
-    <a href="#experience">My Journey</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-  </nav>
+
+  <header>
+    <nav>
+      <h1>MyPortfolio</h1>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
-<h1>Hey, I am Julius Moktan</h1><br><br><br><br><br><br><br>
-<section id="contact">
-<h2>Contact Info</h2>
-<p align="center">Meadow Bank below Mayfair, Darjeeling, West Bengal</p>
-<p align="center">Mobile Number:+918637539923 </p>
-<p align="center">Email:juliusmoktan0@gmail.com </p>
-</section><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
- <section id="objective">
-<h2>About Me</h2>
-<p>Hi, I’m Julius Moktan from Darjeeling, West Bengal, India.
-I’m someone who thrives on creativity, innovation, and the joy of building something meaningful from scratch. Coding and web design aren’t just hobbies for me — they’re powerful tools that let me express who I am and how I see the world. Every line of code I write is a step toward creating something unique, authentic, and personal.
+  <section id="hero" class="hero">
+    <div>
+      <h1>Hi, I'm [Your Name]</h1>
+      <p>Frontend Developer & Designer</p>
+      <button>Contact Me</button>
+    </div>
+  </section>
 
-Even though I’m at the beginning of my journey as a web developer, I approach each project with curiosity, dedication, and a strong desire to learn. I love experimenting with layouts, colors, and user experiences, trying to bring fresh ideas to life on the web. This website is my very first project, and it's more than just a page — it’s a reflection of my passion, effort, and vision.
+  <section id="about" class="about">
+    <img src="https://via.placeholder.com/400x400" alt="Your Photo" />
+    <div>
+      <h2>About Me</h2>
+      <p>I am a passionate developer who loves creating beautiful, responsive websites using HTML, CSS, Flexbox, and Grid.</p>
+      <p>With a keen eye for design and strong problem-solving skills, I enjoy building user-friendly interfaces and clean code.</p>
+    </div>
+  </section>
 
-Thank you for taking the time to explore my work. I hope you enjoy what I’ve created, and I look forward to growing and sharing even more in the future!</P>
-</section><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x200" alt="Project 1" />
+        <h3>Project One</h3>
+        <p>A responsive website built with HTML, CSS, and JavaScript.</p>
+        <a href="#" target="_blank">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x200" alt="Project 2" />
+        <h3>Project Two</h3>
+        <p>An interactive web app using React and APIs.</p>
+        <a href="#" target="_blank">View Project</a>
+      </div>
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x200" alt="Project 3" />
+        <h3>Project Three</h3>
+        <p>A CSS Grid and Flexbox based portfolio layout.</p>
+        <a href="#" target="_blank">View Project</a>
+      </div>
+    </div>
+  </section>
 
-<section id="experience">
-<h2>My Journey</h2>
-<p>Over the years, I’ve explored different industries, picked up diverse skills, and grown through every experience.</P><br>
-<h3>Code Comma Technology – Telemarketing Agent</h3>
-<p>My first step into the professional world began as a telemarketing agent for a U.S.-based IT company. It taught me how to communicate clearly, think on my feet, and connect with people from different backgrounds.</p><br>
-<h3>Moto World Nepal – Sales Executive</h3>
-<p>Driven by curiosity and a love for bikes, I joined Moto World Nepal — one of the top helmet and moto accessories shops in the country. As a sales executive, I learned not just how to sell, but how to understand customers and build trust with them.</p><br>
-<h3>Centrix Contact System – Telemarketing Agent</h3>
-<p>Once again, I found myself in the world of U.S. outbound calling — this time with a company providing I.O.S services. This role sharpened my persuasion and problem-solving skills even further.</p><br>
-<h3> John’s Cafe and Restro – Co-owner</h3>
-<p>One of my proudest chapters was co-owning and working in a café. From crafting menus to managing daily operations, this experience helped me lead, serve, and build something from the ground up — a feeling that now fuels my passion for creating on the web.</p><br>
-<p>Each of these roles added a new layer to who I am — a communicator, a creator, and someone always excited to learn and build. Now, I’m channeling that same energy into web design and development — a new chapter I’m thrilled to begin.</p>
-</section><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<section id="education">
-<h2>Education</h2>
-<dl align="center">
-<dt><strong> St.Xavier's School Jawalakhel</strong></dt>
-<dd>S.L.C (10)</dd><br>
-<dt><strong>St.Joseph's School North Point Darjeeling</strong></dt>
-<dd>I.S.C (12)</dd><br>
-<dt><strong>Manipal University Jaipur</strong></dt>
-<dd>Second Semester Running</dd>
-</section><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<section id= "skills">
-<h2>My Skills</h2>
-<dl>
-  <dt align="center">Soft Skills</dt>
-      <dd align="center">Critical Thinking</dd>
-      <dd align="center">Creativity</dd>
-      <dd align="center">Leadership</dd>
-      <dd align="center">Team Work</dd>
-      <dd align="center">Time Management</dd>
-      <dd align="center">Organization</dd>
-      <dd align="center">Attention to Detail</dd>
-      <dd align="center">Adaptability</dd>
-    </dl>
-<dl>
-<dt align="center">Technical Skills</dt>
-     <dd align="center">Web Development (HTML, CSS, JavaScript)</dd>
-</dl><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">Flexbox</div>
+      <div class="skill">CSS Grid</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React</div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="submit-btn">Send</button>
+    </form>
+  </section>
+
   <footer>
-    <p>&copy; 2025 Thank You For Visiting . See You Again.</p>
+    <p>© 2025 Your Name. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
