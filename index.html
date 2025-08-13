@@ -1,282 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Portfolio</title>
-  <style>
-    /* Reset some default styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/styles.css">
+<title>My Portfolio</title>
 
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-    }
+<header>
+<nav>
+<h1>MyPortfolio</h1>
+<ul>
+<li><a href="#hero">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</header>
 
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+<section id="hero" class="hero>
+<div>
+<img src = "https://raw.githubusercontent.com/Julius-Moktan/My-portfolio/6a9e97685427f784f110e9b10bdaee676ffbae6f/images/Julius_Moktan.jpg" alt="Julius Hancy">
+<h1>
+  Hey, I am <span style="color: blue; font-family: 'Courier New', monospace;">Julius Moktan</span>.
+</h1>
+<p>Web-Developer and Designer</p>
+<button>Contact Me</button>
+</div>
+</section>
 
-    header {
-      background: #222;
-      color: white;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+<section id="about" class="about">
+<div>
+<h2>About Me</h2>
+<p>I am a passionate developer who loves creating beautiful, responsive websites using HTML, CSS, Flexbox, and Grid.
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: auto;
-    }
+With a keen eye for design and strong problem-solving skills, I enjoy building user-friendly interfaces and clean code.</p>
+</div>
+</section>
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    nav li {
-      font-weight: bold;
-    }
-
-    nav a {
-      color: white;
-      font-weight: 600;
-    }
-
-    /* Hero section */
-    .hero {
-      display: grid;
-      place-items: center;
-      height: 80vh;
-      background: #0077cc;
-      color: white;
-      text-align: center;
-      padding: 0 1rem;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero button {
-      padding: 0.75rem 1.5rem;
-      font-size: 1.1rem;
-      background: white;
-      border: none;
-      color: #0077cc;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-
-    .hero button:hover {
-      background: #e0e0e0;
-    }
-
-    /* About Section */
-    .about {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .about img {
-      width: 100%;
-      border-radius: 10px;
-      max-width: 400px;
-      justify-self: center;
-    }
-
-    /* Projects Section */
-    .projects {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-    }
-
-    .projects h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .project-grid {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-
-    .project-card {
-      background: #f5f5f5;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .project-card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 1rem;
-    }
-
-    .project-card h3 {
-      margin-bottom: 0.5rem;
-      color: #0077cc;
-    }
-
-    /* Skills Section */
-    .skills {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-    }
-
-    .skills h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-
-    .skill {
-      background: #0077cc;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 20px;
-      font-weight: 600;
-    }
-
-    /* Contact Section */
-    .contact {
-      max-width: 600px;
-      margin: 3rem auto 5rem;
-      padding: 0 1rem;
-    }
-
-    .contact h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    input, textarea {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 1rem;
-      resize: vertical;
-    }
-
-    button.submit-btn {
-      background: #0077cc;
-      color: white;
-      border: none;
-      padding: 1rem;
-      font-size: 1.1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button.submit-btn:hover {
-      background: #005fa3;
-    }
-
-    /* Footer */
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 1rem 2rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .about {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .about img {
-        margin: 0 auto;
-      }
-      nav ul {
-        flex-direction: column;
-        gap: 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <nav>
-      <h1>MyPortfolio</h1>
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section id="hero" class="hero">
-    <div>
-      <h1>Hi, I'm [Your Name]</h1>
-      <p>Frontend Developer & Designer</p>
-      <button>Contact Me</button>
-    </div>
-  </section>
-
-  <section id="about" class="about">
-    <img src="https://via.placeholder.com/400x400" alt="Your Photo" />
-    <div>
-      <h2>About Me</h2>
-      <p>I am a passionate developer who loves creating beautiful, responsive websites using HTML, CSS, Flexbox, and Grid.</p>
-      <p>With a keen eye for design and strong problem-solving skills, I enjoy building user-friendly interfaces and clean code.</p>
-    </div>
-  </section>
-
-  <section id="projects" class="projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="https://via.placeholder.com/300x200" alt="Project 1" />
-        <h3>Project One</h3>
-        <p>A responsive website built with HTML, CSS, and JavaScript.</p>
+<section id="projects" class="projects">
+<h2>My Projects</h2>
+<div class="project-grid">
+<div class="project-card">
+<p>A responsive website built with HTML, CSS, and JavaScript.</p>
         <a href="#" target="_blank">View Project</a>
       </div>
       <div class="project-card">
@@ -291,12 +58,12 @@
         <p>A CSS Grid and Flexbox based portfolio layout.</p>
         <a href="#" target="_blank">View Project</a>
       </div>
-    </div>
-  </section>
+</div>
+</section>
 
-  <section id="skills" class="skills">
-    <h2>Skills</h2>
-    <div class="skills-list">
+<section id="skills" class="skills">
+<h2>My Skills</h2>
+ <div class="skills-list">
       <div class="skill">HTML</div>
       <div class="skill">CSS</div>
       <div class="skill">Flexbox</div>
@@ -306,19 +73,27 @@
     </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="submit-btn">Send</button>
-    </form>
-  </section>
 
-  <footer>
-    <p>© 2025 Your Name. All rights reserved.</p>
+<section id="contact" class="contact">
+<div>
+<h2>Contact Me</h2>
+<form>
+<input type="text"  placeholder="Your Name" required>
+<input type="email" placeholder=" Your Email" required>
+<textarea rows=5 placeholder="Your Message" required></textarea>
+<button type="submit" class="submit-btn">Send</button>
+</form>
+</div>
+</section>
+
+ <footer>
+    <p>© Julius Moktan. All rights reserved.</p>
   </footer>
 
 </body>
 </html>
+
+
+
+
+
