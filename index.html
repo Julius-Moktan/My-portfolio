@@ -15,6 +15,51 @@
     nav li { font-weight: bold; }
     nav a { color: white; font-weight: 600; }
 
+    /* Hamburger button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #222;
+    width: 200px;
+    padding: 1rem;
+    gap: 1rem;
+    display: none; /* Hidden by default */
+    border-radius: 5px;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+}
+
+
     /* Hero section */
     .hero {
       display: flex;
@@ -116,15 +161,21 @@
 
   <header>
     <nav>
-      <h1>MyPortfolio</h1>
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <h1>MyPortfolio</h1>
+  <button class="hamburger" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
   </header>
 
   <!-- Hero Section -->
@@ -184,14 +235,24 @@
       <textarea rows="5" placeholder="Your Message" required></textarea>
       <button type="submit" class="submit-btn">Send</button>
     </form>
+    
   </section>
 
   <footer>
     <p>© 2025 Julius. All rights reserved.</p>
   </footer>
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
 
 </body>
 </html>
+
 
 
 
